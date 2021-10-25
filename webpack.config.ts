@@ -35,9 +35,9 @@ const config: webpack.Configuration = {
             open: false,
         }),
         // new BundleAnalyzerPlugin(),
-        new webpack.IgnorePlugin({
-            resourceRegExp: /crypto-browserify/,
-        }),
+        // new webpack.IgnorePlugin({
+        //     resourceRegExp: /crypto-browserify/,
+        // }),
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -45,6 +45,9 @@ const config: webpack.Configuration = {
             "buffer": require.resolve("buffer"),
             "stream": false,
         },
+        alias: {
+            'crypto-browserify': path.resolve(__dirname, 'src/lib/randomUUID.ts'),
+        }
     },
     module: {
         rules: [

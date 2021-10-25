@@ -20,7 +20,6 @@ class ModuleLogger {
 
     getUsedFiles = (normalModuleFactory: any) => {
         normalModuleFactory.hooks.module.tap('ModuleLogger', (_module: any, createData: any) => {
-            console.log(createData.resource);
             this.usedFiles.push(createData.resource.replace(/\\/g, '/'));
             return _module;
         });
